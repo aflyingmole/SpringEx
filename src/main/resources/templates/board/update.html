@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 수정</title>
+    <link rel="stylesheet" href="/css/update.css">
+</head>
+<body>
+<h1>게시글 수정</h1>
+<form th:action="@{'/board/update/' + ${board.id}}" method="post">
+    <label for="pwd">비밀번호:</label>
+    <input type="text" id="pwd" name="pwd" th:value="${board.pwd}"><br><br>
+
+    <label for="email">이메일:</label>
+    <input type="email" id="email" name="email" th:value="${board.email}"><br><br>
+
+    <label for="age">나이:</label>
+    <input type="number" id="age" name="age" th:value="${board.age}"><br><br>
+
+    <button type="submit">수정</button>
+</form>
+<a th:href="@{/board/list}">목록으로</a>
+</body>
+</html>
