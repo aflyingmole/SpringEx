@@ -17,6 +17,9 @@
 		<li th:if="${#authentication == null or #authentication.name == 'anonymousUser'}" class="menu-item">
 			<a th:href="@{/login}">회원로그인</a>
 		</li>
+		<li th:if="${#authentication == null or #authentication.name == 'anonymousUser'}" class="menu-item">
+			<a th:href="@{/user/join}">회원가입</a>
+		</li>
 
 		<!-- 로그인한 경우 -->
 		<li th:if="${#authentication != null and #authentication.name != 'anonymousUser'}" class="menu-item">
@@ -28,15 +31,14 @@
 			</div>
 		</li>
 
-		<!-- 게시글 기능 메뉴 -->
-		<li class="menu-item"><a th:href="@{/board/insert}">게시글 작성</a></li>
-		<li class="menu-item"><a th:href="@{/board/list}">게시글 목록 조회</a></li>
+		<!-- 게시글 기능 메뉴 (로그인한 경우에만 표시) -->
+		<li th:if="${#authentication != null and #authentication.name != 'anonymousUser'}" class="menu-item"><a th:href="@{/board/insert}">게시글 작성</a></li>
+		<li th:if="${#authentication != null and #authentication.name != 'anonymousUser'}" class="menu-item"><a th:href="@{/board/list}">게시글 목록 조회</a></li>
 
-		<!-- 공통 메뉴 -->
-		<li class="menu-item"><a th:href="@{/user/join}">회원가입</a></li>
-		<li class="menu-item"><a th:href="@{/sample/all}">모든사용자</a></li>
-		<li class="menu-item"><a th:href="@{/member/list}">회원페이지</a></li>
-		<li class="menu-item"><a th:href="@{/admin/main}">관리자페이지</a></li>
+		<!-- 공통 메뉴 (로그인한 경우에만 표시) -->
+		<li th:if="${#authentication != null and #authentication.name != 'anonymousUser'}" class="menu-item"><a th:href="@{/sample/all}">모든사용자</a></li>
+		<li th:if="${#authentication != null and #authentication.name != 'anonymousUser'}" class="menu-item"><a th:href="@{/member/list}">회원페이지</a></li>
+		<li th:if="${#authentication != null and #authentication.name != 'anonymousUser'}" class="menu-item"><a th:href="@{/admin/main}">관리자페이지</a></li>
 	</div>
 </div>
 
